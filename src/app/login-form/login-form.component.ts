@@ -5,5 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './login-form.component.html',
 })
 export class LoginFormComponent {
+  public credentials = {email: '', password: ''};
 
+  public onSubmit() {
+    alert('login successful');
+  }
 }

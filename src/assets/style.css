@@ -23,6 +23,7 @@ a:hover {
 
 .form {
   background: rgba(19, 35, 47, 0.9);
+  color: lightgray;
   padding: 40px;
   max-width: 600px;
   margin: 40px auto;
@@ -75,7 +76,6 @@ h1 {
 }
 
 label {
-  position: absolute;
   -webkit-transform: translateY(6px);
           transform: translateY(6px);
   left: 13px;
@@ -187,4 +187,17 @@ textarea {
 .forgot {
   margin-top: -20px;
   text-align: right;
+}
+
+input.ng-valid[required]  {
+  border-left: 5px solid green;
+}
+
+input.ng-invalid:not(.ng-pristine)  {
+  border-left: 5px solid red;
+}
+
+pre {
+  background: white;
+  color: black;
 }

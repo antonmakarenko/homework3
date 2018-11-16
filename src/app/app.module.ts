@@ -7,6 +7,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import {FormsModule} from '@angular/forms';
+import {EmailValidatorDirective} from './email-validator.directive';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     LoginFormComponent,
     SignupFormComponent,
     PageNotFoundComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    EmailValidatorDirective
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
