@@ -1,22 +1,20 @@
-<div id="signup">
+<div id="signup" [formGroup]="f">
 
   <h1>Sign Up for Free</h1>
-
-  <form action="/" method="post">
 
     <div class="top-row">
       <div class="field-wrap">
         <label>
           First Name<span class="req">*</span>
         </label>
-        <input type="text" required autocomplete="off" />
+        <input type="text" autocomplete="off" formControlName="firstName" (keyup)="makeSnow($event.currentTarget.value)" />
       </div>
 
       <div class="field-wrap">
         <label>
           Last Name<span class="req">*</span>
         </label>
-        <input type="text"required autocomplete="off"/>
+        <input type="text" autocomplete="off" formControlName="lastName" />
       </div>
     </div>
 
@@ -24,18 +22,28 @@
       <label>
         Email Address<span class="req">*</span>
       </label>
-      <input type="email"required autocomplete="off"/>
+      <input type="email" autocomplete="off" formControlName="email" />
     </div>
 
-    <div class="field-wrap">
-      <label>
-        Set A Password<span class="req">*</span>
-      </label>
-      <input type="password"required autocomplete="off"/>
+
+    <div formGroupName="passwords" class="form-group">
+      <div class="field-wrap">
+        <label>
+          Set A Password<span class="req">*</span>
+        </label>
+        <input type="password" autocomplete="off" formControlName="password" />
+      </div>
+
+      <div class="field-wrap">
+        <label>
+          Repeat Password<span class="req">*</span>
+        </label>
+        <input type="password" autocomplete="off" formControlName="passwordRepeat" />
+      </div>
     </div>
 
-    <button type="submit" class="button button-block">Get Started</button>
+    <pre *ngIf="f.pending">please wait...</pre>
 
-  </form>
+    <button type="button" class="button button-block" [disabled]="!f.valid" (click)="submit()">Get Started</button>
 
 </div>

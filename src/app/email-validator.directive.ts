@@ -1,5 +1,6 @@
 import {Directive, Input} from '@angular/core';
-import {AbstractControl, NG_VALIDATORS, Validator, ValidatorFn} from '@angular/forms';
+import {AbstractControl, NG_VALIDATORS, Validator} from '@angular/forms';
+import emailValidator from './email-validator.function';
 
 @Directive({
     selector: '[appValidEmail]',
@@ -11,10 +12,4 @@ export class EmailValidatorDirective implements Validator {
     }
 }
 
-function emailValidator(): ValidatorFn {
-    return (control: AbstractControl): {[key: string]: any} | null => {
-        const regex = new RegExp(/^[a-z\d\.\-]+@[a-zd\.-]+\.[a-z\d]{2,4}$/, 'i');
-        const isValid = regex.test(control.value);
-        return !isValid ? {invalidEmail: {value: control.value}} : null;
-    };
-}
+
